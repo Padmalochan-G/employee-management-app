@@ -83,7 +83,6 @@ public class EmployeeServiceImplTest {
     
     @Test
     void testCalculateTaxDeductions_Success() {
-        // Prepare the mock data
         Employee mockEmployee = new Employee();
         mockEmployee.setEmployeeId("E123");
         mockEmployee.setFirstName("John");
@@ -91,13 +90,10 @@ public class EmployeeServiceImplTest {
         mockEmployee.setSalary(70000.00);
         mockEmployee.setDateOfJoining("2020-01-01");
 
-        // Mock the repository method to return the mock employee when called
         when(employeeRepository.findByempId("E123")).thenReturn(Optional.of(mockEmployee));
 
-        // Act: Call the method to test business logic
         EmployeeTaxResponse taxResponse = employeeService.calculateTaxDeductions("E123");
 
-        // Assert: Verify the output
         assertNotNull(taxResponse);
         assertEquals("E123", taxResponse.getEmployeeId());
         assertEquals("John", taxResponse.getFirstName());
