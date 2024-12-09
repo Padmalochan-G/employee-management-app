@@ -16,10 +16,12 @@ import com.company.response.EmployeeTaxResponse;
 import com.company.service.EmployeeService;
 
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/api/employees")
 @Validated
+@AllArgsConstructor
 public class EmployeeController {
 	
 	@Autowired
